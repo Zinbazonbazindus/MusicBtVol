@@ -3,23 +3,31 @@ const YouTube = require('simple-youtube-api');
 var Config = require('./config.json');
 const ytdl = require('ytdl-core');
 
-const client = new Client({ disableEveryone: true });
-client.login(Config.token);
 const youtube = new YouTube(Config.youtube);
-
+class Bot {
+    
+    constructor(){
+        this.discordClient = new discord.Client({sync: true});
+        
+        this.discordClient.on("ready", () => {this.initialize();});
+        
+        this.discordClient.on("message", (msg) => {this.processMessage(msg)});
+        
+        this.discordClient.login(Config.token);
+    }
 const queue = new Map();
 
-client.on('warn', console.warn);
+discordClient.on('warn', console.warn);
 
-client.on('error', console.error);
+discordClient.on('error', console.error);
 
-client.on('ready', () => console.log('Yo this ready!'));
+discordClient.on('ready', () => console.log('Yo this ready!'));
 
-client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
+discordClient.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
 
-client.on('reconnecting', () => console.log('I am reconnecting now!'));
+discordClient.on('reconnecting', () => console.log('I am reconnecting now!'));
 
-client.on('message', async msg => { // eslint-disable-line
+discordClient.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(Config.prefix)) return undefined;
 
@@ -34,7 +42,7 @@ client.on('message', async msg => { // eslint-disable-line
 	if (command === 'play') {
 		const voiceChannel = msg.member.voiceChannel;
 		if (!voiceChannel) return msg.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
-		const permissions = voiceChannel.permissionsFor(msg.client.user);
+		const permissions = voiceChannel.permissionsFor(msg.discordClient.user);
 		if (!permissions.has('CONNECT')) {
 			return msg.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
 		}
