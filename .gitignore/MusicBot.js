@@ -4,13 +4,13 @@ var Config = require('./config.json');
 const ytdl = require('ytdl-core');
 
 const youtube = new YouTube(Config.youtube);
-this.discordClient = new discord.Client({sync: true});
+discordClient = new discord.Client({sync: true});
         
-this.discordClient.on("ready", () => {this.initialize();});
+discordClient.on("ready", () => {initialize();});
         
-this.discordClient.on("message", (msg) => {this.processMessage(msg)});
+discordClient.on("message", (msg) => {processMessage(msg)});
         
-this.discordClient.login(Config.token);
+discordClient.login(Config.token);
 const queue = new Map();
 
 discordClient.on('warn', console.warn);
