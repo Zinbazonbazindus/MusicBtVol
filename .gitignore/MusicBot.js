@@ -4,7 +4,7 @@ var Config = require('./config.json');
 const ytdl = require('ytdl-core');
 
 const client = new Client({ disableEveryone: true });
-this.client.login(Config.token);
+client.login(Config.token);
 const youtube = new YouTube(Config.youtube);
 
 const queue = new Map();
