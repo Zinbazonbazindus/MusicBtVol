@@ -4,8 +4,8 @@ var Config = require('./config.json');
 const ytdl = require('ytdl-core');
 
 const youtube = new YouTube(Config.youtube);
-discordClient = new discord.discordClient({sync: true});
-        
+discordClient = new Client({sync: true});
+
 discordClient.on("ready", () => {initialize();});
         
 discordClient.on("message", (msg) => {processMessage(msg)});
