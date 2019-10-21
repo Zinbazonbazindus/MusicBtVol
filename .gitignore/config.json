@@ -1,0 +1,5 @@
+exports.TOKEN = 'process.env.key';
+
+exports.PREFIX = '!';
+
+exports.GOOGLE_API_KEY = 'process.env.youtube';
