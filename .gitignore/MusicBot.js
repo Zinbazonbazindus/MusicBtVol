@@ -1,10 +1,10 @@
-const { discord, Util } = require('discord.js');
+const { Client, Util } = require('discord.js');
 const YouTube = require('simple-youtube-api');
 var Config = require('./config.json');
 const ytdl = require('ytdl-core');
 
 const youtube = new YouTube(Config.youtube);
-discordClient = new Client({sync: true});
+const discordClient = new Client({ disableEveryone: true });
 
 discordClient.on("ready", () => {initialize();});
         
