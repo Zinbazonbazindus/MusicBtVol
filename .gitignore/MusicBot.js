@@ -5,7 +5,7 @@ const ytdl = require('ytdl-core');
 
 const client = new Client({ disableEveryone: true });
 
-const youtube = new YouTube("AIzaSyANuqRJrgQHr_r7hayQ3DiOkSLZ1U6qKJQ");
+const youtube = new YouTube(Config.youtube);
 
 const queue = new Map();
 
@@ -195,4 +195,4 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
 }
 
-client.login("NjM1ODkyOTcxNTQzMzMwODM2.Xa4QVw.eMtCfFYg79hv39e81VgVryOVQ0I");
+client.login(Config.token);
