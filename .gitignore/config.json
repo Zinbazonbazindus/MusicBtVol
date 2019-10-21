@@ -1,5 +1,5 @@
-exports.TOKEN = process.env.key;
+exports.TOKEN = 'NjM1ODkyOTcxNTQzMzMwODM2.Xa4QVw.eMtCfFYg79hv39e81VgVryOVQ0I';
 
 exports.PREFIX = '!';
 
-exports.GOOGLE_API_KEY = process.env.youtube;
+exports.GOOGLE_API_KEY = 'AIzaSyANuqRJrgQHr_r7hayQ3DiOkSLZ1U6qKJQ';
